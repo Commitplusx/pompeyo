@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, ShieldCheck, BadgeCheck, Car, Users, Sparkles } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
+import { Typewriter } from './Typewriter';
 
 export const Hero: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -18,13 +19,13 @@ export const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative min-h-[100dvh] flex items-center pt-24 pb-12 md:pt-20 md:pb-0 overflow-hidden">
-      {/* Background Image with Overlay and Parallax Effect */}
+      {/* Background Image with Overlay and Parallax Effect + Ken Burns */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src="/pompeyo-frente.jpg"
           onError={(e) => handleImageError(e, "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")}
           alt="Base Pompeyo Express Comitán"
-          className="w-full h-[120%] object-cover object-top md:object-center will-change-transform"
+          className="w-full h-[120%] object-cover object-top md:object-center animate-ken-burns will-change-transform"
           style={{ transform: `translateY(${scrollY * 0.4}px)` }} // Moves slower than scroll for parallax
         />
         {/* Darker gradient overlay to make glass cards pop */}
@@ -34,26 +35,28 @@ export const Hero: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
         <div className="w-full md:w-2/3 text-white py-8 md:py-12">
           <ScrollReveal direction="right" delay={0}>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8 shadow-lg">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8 shadow-lg min-h-[32px]">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
               </span>
-              <span className="text-xs md:text-sm font-medium tracking-wide text-gray-200">Servicio activo en Comitán, Chiapas</span>
+              <span className="text-xs md:text-sm font-medium tracking-wide text-gray-200">
+                <Typewriter text="Servicio activo en Comitán, Chiapas" delay={500} speed={30} cursor={false} />
+              </span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={100}>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 drop-shadow-lg">
-              Tu taxi seguro en <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-orange-400">POMPEYO EXPRESS</span>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 drop-shadow-lg min-h-[120px] md:min-h-[160px]">
+              <div className="block mb-2">
+                <Typewriter text="Tu taxi seguro en" delay={1500} speed={40} cursor={false} />
+              </div>
+              <div className="inline-block">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink to-pink-400">
+                  <Typewriter text="POMPEYO EXPRESS" delay={2500} speed={50} cursor={true} />
+                </span>
+              </div>
             </h1>
-
-            {/* New Pink Mode Badge */}
-            <div className="inline-flex items-center gap-2 bg-pink-600/20 border border-pink-500/50 backdrop-blur-md px-4 py-2 rounded-full mb-8 animate-pulse shadow-[0_0_20px_rgba(236,72,153,0.3)] hover:scale-105 transition-transform duration-300">
-              <Sparkles size={16} className="text-pink-400" />
-              <span className="text-pink-100 font-bold text-sm tracking-wide">CONTAMOS CON TAXI ROSA PARA MUJERES</span>
-            </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={200}>
@@ -79,8 +82,12 @@ export const Hero: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <a href="#services" className="px-8 py-4 bg-brand-orange hover:bg-orange-600 text-white rounded-xl font-bold text-lg transition-all shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 group w-full sm:w-auto hover:-translate-y-0.5 hover:shadow-orange-500/40">
-                Ver Unidades <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <a href="#services" className="relative overflow-hidden px-8 py-4 bg-brand-orange hover:bg-orange-600 text-white rounded-xl font-bold text-lg transition-all shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 group w-full sm:w-auto hover:-translate-y-0.5 hover:shadow-orange-500/40">
+                <span className="relative z-10 flex items-center gap-2">
+                  Ver Unidades <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </span>
+                {/* Shimmer Effect Overlay */}
+                <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent z-0"></div>
               </a>
               <a href="#about" className="px-8 py-4 bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-xl font-bold text-lg transition-all flex items-center justify-center w-full sm:w-auto hover:-translate-y-0.5 hover:shadow-lg">
                 Ubicación

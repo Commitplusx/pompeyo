@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollReveal } from './ScrollReveal';
+import { X, ZoomIn } from 'lucide-react';
 
 export const Gallery: React.FC = () => {
-  // Helper to handle image fallback if the user hasn't uploaded their local files yet
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // Helper to handle image fallback
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, fallbackSrc: string) => {
-    e.currentTarget.onerror = null; // Prevent infinite loop
+    e.currentTarget.onerror = null;
     e.currentTarget.src = fallbackSrc;
+  };
+
+  const openLightbox = (src: string) => {
+    setSelectedImage(src);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'unset';
   };
 
   return (
@@ -20,65 +33,83 @@ export const Gallery: React.FC = () => {
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px]">
-          
-          {/* 1. The Yellow Building Photo (Vertical/Large) */}
-          <ScrollReveal direction="up" delay={0} className="md:col-span-1 md:row-span-2 relative rounded-2xl overflow-hidden group shadow-lg">
-            <img 
-              src="/pompeyo-logo.jpg" 
+
+          {/* 1. The Yellow Building Photo */}
+          <ScrollReveal direction="up" delay={0} className="md:col-span-1 md:row-span-2 relative rounded-2xl overflow-hidden group shadow-lg cursor-pointer" onClick={() => openLightbox("/pompeyo-logo.jpg")}>
+            <img
+              src="/pompeyo-logo.jpg"
               onError={(e) => handleImageError(e, "https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80")}
-              alt="Base Pompeyo Express Edificio Amarillo" 
+              alt="Base Pompeyo Express Edificio Amarillo"
               className="w-full h-full object-contain bg-gradient-to-br from-yellow-400 to-orange-500 p-8 transform group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
-              <div className="text-white">
-                <h3 className="font-bold text-lg">Nuestra Base</h3>
-                <p className="text-xs text-gray-200">Instalaciones modernas y seguras</p>
-              </div>
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+              <ZoomIn className="text-white w-10 h-10" />
             </div>
           </ScrollReveal>
 
-          {/* 2. The Front View of Two Taxis (Landscape) */}
-          <ScrollReveal direction="up" delay={200} className="md:col-span-2 md:row-span-1 relative rounded-2xl overflow-hidden group shadow-lg">
-             <img 
-              src="/pompeyo-frente.jpg" 
+          {/* 2. The Front View */}
+          <ScrollReveal direction="up" delay={200} className="md:col-span-2 md:row-span-1 relative rounded-2xl overflow-hidden group shadow-lg cursor-pointer" onClick={() => openLightbox("/pompeyo-frente.jpg")}>
+            <img
+              src="/pompeyo-frente.jpg"
               onError={(e) => handleImageError(e, "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80")}
-              alt="Unidades Nissan Versa Frente" 
+              alt="Unidades Nissan Versa Frente"
               className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
             />
-             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-bold shadow-sm">
-               Unidades Recientes
-             </div>
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+              <ZoomIn className="text-white w-10 h-10" />
+            </div>
           </ScrollReveal>
 
-          {/* 3. The Angled Side View (Landscape) */}
-          <ScrollReveal direction="up" delay={300} className="md:col-span-1 md:row-span-1 relative rounded-2xl overflow-hidden group shadow-lg">
-            <img 
-              src="/pompeyo-lado.jpg" 
+          {/* 3. The Angled Side View */}
+          <ScrollReveal direction="up" delay={300} className="md:col-span-1 md:row-span-1 relative rounded-2xl overflow-hidden group shadow-lg cursor-pointer" onClick={() => openLightbox("/pompeyo-lado.jpg")}>
+            <img
+              src="/pompeyo-lado.jpg"
               onError={(e) => handleImageError(e, "https://images.unsplash.com/photo-1621993202323-2433e8c74146?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80")}
-              alt="Taxis Vista Lateral" 
+              alt="Taxis Vista Lateral"
               className="w-full h-full object-contain bg-gradient-to-br from-yellow-400 to-orange-500 p-8 transform group-hover:scale-105 transition-transform duration-700"
             />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+              <ZoomIn className="text-white w-10 h-10" />
+            </div>
           </ScrollReveal>
 
-          {/* 4. The Full Fleet Lineup (Landscape) */}
-          <ScrollReveal direction="up" delay={400} className="md:col-span-1 md:row-span-1 relative rounded-2xl overflow-hidden group shadow-lg">
-            <img 
-              src="/pompeyo-flota.jpg" 
+          {/* 4. The Full Fleet Lineup */}
+          <ScrollReveal direction="up" delay={400} className="md:col-span-1 md:row-span-1 relative rounded-2xl overflow-hidden group shadow-lg cursor-pointer" onClick={() => openLightbox("/pompeyo-flota.jpg")}>
+            <img
+              src="/pompeyo-flota.jpg"
               onError={(e) => handleImageError(e, "https://images.unsplash.com/photo-1565514020176-7c50a5839b23?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80")}
-              alt="Flota Completa" 
+              alt="Flota Completa"
               className="w-full h-full object-contain bg-gradient-to-br from-yellow-400 to-orange-500 p-8 transform group-hover:scale-105 transition-transform duration-700"
             />
-             <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-               <span className="text-white font-bold border border-white px-4 py-2 rounded-full">Ver Flota</span>
-             </div>
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+              <ZoomIn className="text-white w-10 h-10" />
+            </div>
           </ScrollReveal>
 
         </div>
-        
+
         <p className="text-center text-sm text-gray-400 mt-6 italic">
           * Imágenes reales de nuestras unidades y base en Comitán.
         </p>
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 z-[60] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-300" onClick={closeLightbox}>
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-all"
+          >
+            <X size={32} />
+          </button>
+          <img
+            src={selectedImage}
+            alt="Vista ampliada"
+            className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-300"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
+          />
+        </div>
+      )}
     </section>
   );
 };

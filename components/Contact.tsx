@@ -7,7 +7,7 @@ export const Contact: React.FC = () => {
     <footer id="contact" className="bg-brand-dark text-white pt-12 md:pt-20 pb-8 md:pb-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
-          
+
           {/* Brand Info */}
           <ScrollReveal direction="up" delay={0}>
             <h3 className="text-2xl font-extrabold mb-4 md:mb-6">
@@ -57,18 +57,18 @@ export const Contact: React.FC = () => {
           </ScrollReveal>
 
           {/* Map */}
-          <ScrollReveal direction="up" delay={300} className="rounded-xl overflow-hidden h-52 md:h-60 bg-gray-800 relative">
-             {/* Static Map Image Placeholder */}
-            <img 
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
-                alt="Map location" 
-                className="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity"
-            />
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="bg-brand-orange text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                    Base Central
-                </div>
-            </div>
+          <ScrollReveal direction="up" delay={300} className="rounded-xl overflow-hidden h-52 md:h-60 bg-gray-800 relative shadow-lg border border-gray-700">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.664234660886!2d-92.1366666851363!3d16.25333338876666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x858d3f7b0b0b0b0b%3A0x0!2zMTbCsDE1JzEyLjAiTiA5MsKwMDgnMTIuMCJX!5e0!3m2!1ses-419!2smx!4v1620000000000!5m2!1ses-419!2smx"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+              title="Ubicación Pompeyo Express"
+            ></iframe>
           </ScrollReveal>
         </div>
 

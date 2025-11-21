@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 const testimonials = [
     {
@@ -26,12 +27,14 @@ const Testimonials: React.FC = () => {
     return (
         <section className="bg-white py-12 md:py-20">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-8">
-                    Lo que dicen nuestros clientes
-                </h2>
+                <ScrollReveal direction="up">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-8">
+                        Lo que dicen nuestros clientes
+                    </h2>
+                </ScrollReveal>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {testimonials.map((t) => (
-                        <div key={t.id} className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    {testimonials.map((t, index) => (
+                        <ScrollReveal key={t.id} direction="up" delay={index * 100} className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
                             <p className="text-gray-700 mb-4">“{t.text}”</p>
                             <div className="flex items-center justify-between">
                                 <span className="font-semibold text-gray-900">{t.name}</span>
@@ -45,7 +48,7 @@ const Testimonials: React.FC = () => {
                                     ))}
                                 </div>
                             </div>
-                        </div>
+                        </ScrollReveal>
                     ))}
                 </div>
             </div>

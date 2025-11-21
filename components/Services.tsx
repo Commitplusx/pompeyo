@@ -67,7 +67,7 @@ export const Services: React.FC = () => {
               <div className="h-56 md:h-64 overflow-hidden relative group">
                 <div className={`w-full h-full flex items-center justify-center transition-transform duration-700 group-hover:scale-110 ${taxi.id === 'general' ? 'bg-gray-100' : 'bg-pink-50'}`}>
                     <img 
-                        src={taxi.id === 'general' ? "/pompeyo-general.jpg" : "/pompeyo-rosa.jpg"}
+                        src={taxi.id === 'general' ? "/pompeyo-lado.jpg" : "/pompeyo-flota.jpg"}
                         onError={(e) => handleImageError(e, taxi.id === 'general' 
                             ? "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
                             : "https://images.unsplash.com/photo-1621993202323-2433e8c74146?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80")}

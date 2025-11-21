@@ -24,10 +24,10 @@ export const Gallery: React.FC = () => {
           {/* 1. The Yellow Building Photo (Vertical/Large) */}
           <ScrollReveal direction="up" delay={0} className="md:col-span-1 md:row-span-2 relative rounded-2xl overflow-hidden group shadow-lg">
             <img 
-              src="/pompeyo-edificio.jpg" 
+              src="/pompeyo-logo.jpg" 
               onError={(e) => handleImageError(e, "https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80")}
               alt="Base Pompeyo Express Edificio Amarillo" 
-              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-contain bg-gradient-to-br from-yellow-400 to-orange-500 p-8 transform group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
               <div className="text-white">
@@ -56,7 +56,7 @@ export const Gallery: React.FC = () => {
               src="/pompeyo-lado.jpg" 
               onError={(e) => handleImageError(e, "https://images.unsplash.com/photo-1621993202323-2433e8c74146?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80")}
               alt="Taxis Vista Lateral" 
-              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-contain bg-gradient-to-br from-yellow-400 to-orange-500 p-8 transform group-hover:scale-105 transition-transform duration-700"
             />
           </ScrollReveal>
 
@@ -66,7 +66,7 @@ export const Gallery: React.FC = () => {
               src="/pompeyo-flota.jpg" 
               onError={(e) => handleImageError(e, "https://images.unsplash.com/photo-1565514020176-7c50a5839b23?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80")}
               alt="Flota Completa" 
-              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-contain bg-gradient-to-br from-yellow-400 to-orange-500 p-8 transform group-hover:scale-105 transition-transform duration-700"
             />
              <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                <span className="text-white font-bold border border-white px-4 py-2 rounded-full">Ver Flota</span>

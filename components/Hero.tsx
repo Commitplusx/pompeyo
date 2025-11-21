@@ -21,7 +21,7 @@ export const Hero: React.FC = () => {
       {/* Background Image with Overlay and Parallax Effect */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
-          src="/pompeyo-edificio.jpg" 
+          src="/pompeyo-frente.jpg" 
           onError={(e) => handleImageError(e, "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")}
           alt="Base Pompeyo Express Comitán" 
           className="w-full h-[120%] object-cover object-center will-change-transform"
@@ -132,7 +132,7 @@ export const Hero: React.FC = () => {
           <ScrollReveal direction="left" delay={500} className="absolute top-24 right-0 pointer-events-auto bg-white p-4 rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 w-64 z-20 border-b-4 border-brand-orange group">
              <div className="h-36 bg-gray-100 rounded-xl mb-3 overflow-hidden relative">
                  <img 
-                    src="/pompeyo-general.jpg" 
+                    src="/pompeyo-lado.jpg" 
                     onError={(e) => handleImageError(e, "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=400&q=80")}
                     alt="Taxi Gris" 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
@@ -155,7 +155,7 @@ export const Hero: React.FC = () => {
           <ScrollReveal direction="left" delay={700} className="absolute top-56 right-12 pointer-events-auto bg-white p-4 rounded-2xl shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500 w-64 z-30 border-b-4 border-brand-pink group">
              <div className="h-36 bg-pink-50 rounded-xl mb-3 overflow-hidden relative">
                  <img 
-                    src="/pompeyo-rosa.jpg" 
+                    src="/pompeyo-flota.jpg" 
                     onError={(e) => handleImageError(e, "https://images.unsplash.com/photo-1621993202323-2433e8c74146?auto=format&fit=crop&w=400&q=80")}
                     alt="Taxi Rosa" 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
